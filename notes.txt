@@ -3,3 +3,19 @@ php artisan make:model Property -m
 configuration de la table Property
 php artisan migrate
 
+route:
+ce qu'on veut : http://127.0.0.1:8000/admin/property
+
+
+dans le cas d'une resource on justifie juste le nom du controller
+
+creation du controller : PropertyController
+
+php artisan make:controller Admin\PropertyController
+
+vérification des routes
+pah artisan route:list
+
+Request pour valider les donner
+php artisan make:request Admin\PropertyForRequest
+
