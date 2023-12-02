@@ -11,7 +11,7 @@ class PropertyForRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class PropertyForRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'surface' => 'required|integer',
+            'rooms' => 'required|integer',
+            'bedrooms' => 'required|integer',
+            'floor' => 'required|integer',
+            'price' => 'required|integer',
+            'city' => 'required|string|max:255',
+            'adress' => 'required|string|max:255',
+            'postal_code' => 'required|integer',
+            'sold' => 'required|boolean',
         ];
     }
 }

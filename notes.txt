@@ -19,3 +19,19 @@ pah artisan route:list
 Request pour valider les donner
 php artisan make:request Admin\PropertyForRequest
 
+Definition des regles : passage à true
+
+modification du controller on delete et on fait
+php artisan make:controller Admin\PropertyController -r
+
+pour index
+il faut recupere l'enemble des biens pour les afficher sous forme de tableau
+suppression de la méthode show
+Dans route
+on supprime des reources show avec "except()"
+
+creation de la view admin/admin.blade.php
+
+le lien ajouter un bienscreate : $property = une nouvelle property => new Property() un lein vide qui va nous permettre de récupérer les valeurs
+
+nouveau dossier shared dans view
