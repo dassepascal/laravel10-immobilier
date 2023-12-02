@@ -1,0 +1,5 @@
+php artisan make:model Property -m
+
+configuration de la table Property
+php artisan migrate
+
