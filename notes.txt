@@ -32,6 +32,13 @@ on supprime des reources show avec "except()"
 
 creation de la view admin/admin.blade.php
 
-le lien ajouter un bienscreate : $property = une nouvelle property => new Property() un lein vide qui va nous permettre de récupérer les valeurs
+le lien ajouter un bien create : $property = une nouvelle property => new Property() un lien vide qui va nous permettre de récupérer les valeurs
 
 nouveau dossier shared dans view
+
+dans form.blade.php
+ action="{{ route($property->exists ? 'admin.property-update' : 'admin.property.store', ['property' => $property]) }}"
+ en mode edition on peut ecrire:
+  action="{{ route($property->exists ? 'admin.property-update' : 'admin.property.store',  $property) }}"
+pour editer un bien la methode doit etre put ou patch
+
