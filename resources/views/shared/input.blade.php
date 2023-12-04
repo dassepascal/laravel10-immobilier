@@ -11,16 +11,18 @@ $label ??= Str::ucfirst($string = Str::of($name)->replace('_', ' '));
 
 
 <div @class(["form-group", $class])>
-    <label for="{{  $name }}">{{  $label }}</label>
+    <label for="{{  $name }}">{{ $label }}</label>
     @if($type === 'textarea')
-    <textarea class="form-control @error($name) is-invalid @enderror" id="{{  $name }}" name="{{ $name }}" rows="3">{{ old($name),$value }}</textarea>
+    <textarea class="form-control @error($name) is-invalid @enderror" id="{{  $name }}" name="{{ $name }}"
+        rows="3">{{ old($name,$value) }}</textarea>
     @else
 
-    <input class="form-control @error($name) is-invalid @enderror" type="{{  $type }}" id="{{  $name }}" name="{{ $name }}" value="{{ old($name),$value }}">
-@endif
+    <input class="form-control @error($name) is-invalid @enderror" type="{{  $type }}" id="{{  $name }}"
+        name="{{ $name }}" value="{{ old($name,$value)}}">
+    @endif
     @error($name)
     <div class="invalid-feeback">
-        {{  $message }}
+        {{ $message }}
     </div>
     @enderror
 </div>

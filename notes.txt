@@ -54,5 +54,29 @@ checkbox.blade.php
 valeur par defaut : <input @checked(old($value ?? false)) type="checbox" value="1" name="{{ $name }}" class="form-check-input @error($name) is-invalide @enderror" role="switch" id="{{ $name }}">
 Pour selection multiple maintenir la toucche alt
 
+pour afficher les messages dans admin.blade.php
+
+@if(session('succecc'))
+<div class="alert alert-success">
+    {{session('success')}}
+</div>
+@endif
+
+pour la pagination des pages configuration de bootstrap dans AppServiceProvider
+
+use Illuminate\Pagination\Paginator;
+ public function boot(): void
+    {
+        Paginator::useBootstrap();
+    }
+
+pour les boutons action editer sera <a></a>
+et pour destry sera un formulaire securité
+
+Dans PropertyController
+
+methode editer
+
+
 
 

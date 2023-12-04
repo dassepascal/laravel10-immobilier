@@ -15,7 +15,7 @@ class PropertyController extends Controller
     public function index()
     {
         return view('admin.properties.index', [
-            'properties' => Property::orderBy('created_at', 'desc')->paginate(10),
+            'properties' => Property::orderBy('created_at', 'desc')->paginate(5),
 
         ]);
     }
@@ -27,21 +27,16 @@ class PropertyController extends Controller
     {
          $property = new Property();
 
-        $property->fill([
-            'surface' => 40,
-            'rooms' => 3,
-            'bedrooms' => 2,
-            'floor' => 0,
-            'city' => 'Rennes',
-            'postal_code' => '35000',
-            'sold' => false,
-            'price' => 100000,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl nunc sit amet nisl. Nulla facilisi. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl nunc sit amet nisl. Nulla facilisi.
-            ',
-            'title' => 'Lorem ',
-            'adress' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl nunc sit amet nisl. Nulla facilisi. Sed euismod, nisl eget aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl nunc sit amet nisl. Nulla facilisi.',
+        $property->forceFill([
+'surface' => 40,
+'rooms' => 2,
+'bedrooms' => 1,
+'floor' => 1,
+'city'=> 'Auray',
+'postal_code' => '56400',
+'sold'=>false,
+
         ]);
-        $property->save();
 
 
         return view('admin.properties.form', [
@@ -55,6 +50,7 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
+        dd($request->validated());
         $property = Property::create($request->validated());
         return to_route('admin.property.index')->with('success', 'Le bien a bien été ajouté !');
     }
@@ -64,24 +60,33 @@ class PropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Property $property)
     {
-        //
+
+        //dd($property->toArray());
+        return view('admin.properties.form', [
+            'property' => $property,
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PropertyFormRequest $request, Property $property)
     {
-        //
+        $property->update($request->validated());
+        return to_route('admin.property.index')->with('success', 'Le bien a bien été mis à jour !');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Property $property)
     {
-        //
+        $property->delete();
+        return to_route('admin.property.index')->with('success', 'Le bien a bien été supprimé !');
     }
+
 }
