@@ -25,9 +25,17 @@
             </div>
         </div>
         @include('shared.input', ['type'=>'textarea','class' => 'col', 'name' => 'description', 'value' => $property->description])
-
-
-
+<div class="row">
+    @include('shared.input', ['class' => 'col','label' => 'Pièces', 'name' => 'rooms', 'value' => $property->rooms])
+    @include('shared.input', ['class' => 'col','label' => 'Chambres', 'name' => 'bedrooms', 'value' => $property->bedrooms])
+    @include('shared.input', ['class' => 'col','label' => 'Etage', 'name' => 'floor', 'value' => $property->floor])
+</div>
+<div class="row">
+    @include('shared.input', ['class' => 'col','label' => 'Adresse', 'name' => 'adress', 'value' => $property->adress])
+    @include('shared.input', ['class' => 'col','label' => 'Ville', 'name' => 'city', 'value' => $property->city])
+    @include('shared.input', ['class' => 'col','label' => 'Code postal', 'name' => 'postal_code', 'value' => $property->postal_code])
+</div>
+@include('shared.checkbox', ['label' => 'Vendu', 'name' => 'sold', 'value' => $property->sold])
 
         <button class="btn btn-primary">
 

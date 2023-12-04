@@ -42,3 +42,17 @@ dans form.blade.php
   action="{{ route($property->exists ? 'admin.property-update' : 'admin.property.store',  $property) }}"
 pour editer un bien la methode doit etre put ou patch
 
+
+gestion de la partie sauvegarde du formulaire d'enregistrement
+PropertyController
+je vais créer un nouveau bien : $property = Property::create($request ->valideted());
+
+pour la methode create on peut donner des valeurs par defaut.
+
+pour la parti vendu ou pas vendu checkbox
+checkbox.blade.php
+valeur par defaut : <input @checked(old($value ?? false)) type="checbox" value="1" name="{{ $name }}" class="form-check-input @error($name) is-invalide @enderror" role="switch" id="{{ $name }}">
+Pour selection multiple maintenir la toucche alt
+
+
+
