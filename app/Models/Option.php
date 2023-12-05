@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Property;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Option extends Model
 {
@@ -12,4 +13,9 @@ class Option extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class);
+    }
 }

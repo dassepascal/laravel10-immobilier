@@ -78,5 +78,23 @@ Dans PropertyController
 methode editer
 
 
+navbar voir comment est active le lien
 
 
+
+gestion des options creation d'une table de liaison entre les tables  property et option
+
+relation many to many  nm dans le cas de ulm
+php artisan make:migration CreateOptionPropertyTable
+attention : "foreignIdFor"
+
+ public function up(): void
+    {
+        Schema::create('option_property', function (Blueprint $table) {
+            $table->foreignIdFor(Option::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Property::class)->constrained()->cascadeOnDelete();
+            $table->primary(['option_id', 'property_id']);
+        });
+    }
+
+    

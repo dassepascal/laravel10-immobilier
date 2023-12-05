@@ -50,7 +50,7 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
-        dd($request->validated());
+        
         $property = Property::create($request->validated());
         return to_route('admin.property.index')->with('success', 'Le bien a bien été ajouté !');
     }

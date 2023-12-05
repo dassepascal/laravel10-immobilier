@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Option;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Property extends Model
 {
@@ -23,4 +24,9 @@ class Property extends Model
         'sold' ,
 
     ];
+
+    public function options()
+    {
+        return $this->belongsToMany(Option::class);
+    }
 }
