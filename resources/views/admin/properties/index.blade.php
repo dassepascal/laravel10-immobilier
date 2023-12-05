@@ -22,6 +22,7 @@
 
     </thead>
     <tbody>
+        @dump($properties)
         @foreach ($properties as $property)
         <tr>
 
