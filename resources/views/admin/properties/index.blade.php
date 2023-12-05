@@ -46,3 +46,4 @@
 </table>
 
 {{ $properties->links() }}
+@endsection
