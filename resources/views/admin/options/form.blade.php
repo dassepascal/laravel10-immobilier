@@ -1,22 +1,32 @@
 @extends('admin.admin')
 
-@section('title', $option->exists ? 'Editer une option' : "Créer une option")
+@section('title', $option->exists ? 'Editer un bien' : "Créer une option")
 
 @section('content')
-<h1>@yield('title')</h1>
 
-<form
-class="vstack gap-2"
-action="{{ route($option->exists ? 'admin.option.update' : 'admin.option.store', ['option' => $option]) }}"
-method="post"
->
-@csrf
-@method($option->exists ? "put" : "post")
+<div class="d-flex justify-content-between align-items-center">
+    <h1>@yield('title')</h1>
+</div>
+
+    <form
+        class="vstack gap-2"
+        action="{{ route($option->exists ? 'admin.option.update' : 'admin.option.store', ['option' => $option]) }}"
+        method="post">
+        @csrf
+
+        @method($option->exists ? 'PUT' : 'POST')
 
 
-@include('shared.input',['label'=>'Nom','name'=>'name','type'=>'text','value'=> $option->name])
 
-</form>
+        <div class="row">
+
+                @include('shared.input', ['class' => 'col','label' => 'Nom', 'name' => 'name', 'value' => $option->name])
+
+
+        </div>
+
+
+
 <div>
     <button class="btn btn-primary">
 
@@ -25,9 +35,10 @@ method="post"
         @else
         Créer
         @endif
-
     </button>
+
 </div>
+
 
 
 

@@ -1,12 +1,12 @@
 @extends('admin.admin')
 
-@section('title', 'Toutes les options')
+@section('title', 'Toutes les options ')
 
 @section('content')
 
 <div class="d-flex justify-content-between align-items-center">
     <h1>@yield('title')</h1>
-    <a href="{{  route('admin.option.create') }}" class="btn btn-primary">Ajouter une option</a>
+    <a href="{{ route('admin.option.create') }}" class="btn btn-primary">Ajouter une option</a>
 </div>
 
 <table class="table table-stripes">
@@ -20,7 +20,10 @@
 
     </thead>
     <tbody>
-        @foreach ($options as $option)
+
+    @foreach ($options as $option )
+
+
         <tr>
 
             <td>{{ $option->name }}</td>
@@ -34,10 +37,18 @@
                         <button class="btn btn-danger">Supprimer</button>
                     </form>
                 </div>
+                {{-- <div class="d-flex gap-2 w-100 justify-content-end ">
+                    <a href="" class="btn btn-primary"> Editer</a>
+                    <form action="" method="post">
+                        @csrf
+                        @method("delete")
+                        <button class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div> --}}
 
             </td>
         </tr>
         @endforeach
 </table>
 
-{{ $options->links() }}
+

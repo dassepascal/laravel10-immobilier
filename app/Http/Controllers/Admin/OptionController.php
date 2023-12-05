@@ -38,9 +38,9 @@ class OptionController extends Controller
      */
     public function store(OptionFormRequest $request)
     {
-        dd('request',$request);
+
         $option = Option::create($request->validated());
-        return to_route('admin.options.index')->with('success', 'L\'option a bien été ajouté !');
+        return to_route('admin.option.index')->with('success', 'L\'option a bien été ajouté !');
     }
 
 
@@ -53,7 +53,7 @@ class OptionController extends Controller
 
 
         return view('admin.options.form', [
-            'options' => $option,
+            'option' => $option,
         ]);
     }
 

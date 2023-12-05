@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="d-flex justify-content-between align-items-center">
+<div class="d-flex justify-content-between align-items-center ">
     <h1>@yield('title')</h1>
     <a href="{{  route('admin.property.create') }}" class="btn btn-primary">Ajouter un bien</a>
 </div>
@@ -22,7 +22,7 @@
 
     </thead>
     <tbody>
-        @dump($properties)
+
         @foreach ($properties as $property)
         <tr>
 

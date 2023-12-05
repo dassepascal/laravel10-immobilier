@@ -38,6 +38,7 @@ class ServiceController extends Controller
      */
     public function store(ServiceFormRequest $request)
     {
+        dd('request', $request);
         $service = Service::create($request->validated());
         return redirect()->route('admin.service.index')->with('success', 'Le service a bien été ajouté !');
     }
