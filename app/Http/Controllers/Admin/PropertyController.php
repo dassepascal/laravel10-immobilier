@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Option;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,22 +26,22 @@ class PropertyController extends Controller
      */
     public function create()
     {
-         $property = new Property();
+        $property = new Property();
 
         $property->forceFill([
-'surface' => 40,
-'rooms' => 2,
-'bedrooms' => 1,
-'floor' => 1,
-'city'=> 'Auray',
-'postal_code' => '56400',
-'sold'=>false,
-
+            'surface' => 40,
+            'rooms' => 2,
+            'bedrooms' => 1,
+            'floor' => 1,
+            'city' => 'Auray',
+            'postal_code' => '56400',
+            'sold' => false,
         ]);
 
 
         return view('admin.properties.form', [
             'property' => $property,
+            'options' => Option::pluck('name', 'id'),
         ]);
 
     }
@@ -50,7 +51,7 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
-        
+
         $property = Property::create($request->validated());
         return to_route('admin.property.index')->with('success', 'Le bien a bien été ajouté !');
     }
@@ -66,6 +67,8 @@ class PropertyController extends Controller
         //dd($property->toArray());
         return view('admin.properties.form', [
             'property' => $property,
+            'options' => Option::pluck('name', 'id'),
+
         ]);
     }
 

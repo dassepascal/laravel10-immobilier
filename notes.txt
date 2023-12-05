@@ -97,4 +97,34 @@ attention : "foreignIdFor"
         });
     }
 
+    modificatoin de admin.blade
+selection multiple mettre des [] dans name="{{ $name }}[]
+
+
+      <select class="form-control @error($name) is-invalid @enderror" id="{{  $name }}" name="{{ $name }}[]"
+        {{ $multipe ? 'multiple' : '' }}>
+
+il faut passer dans PropertyController les options :
+ public function create()
+    {
+        $property = new Property();
+
+        $property->forceFill([
+            'surface' => 40,
+            'rooms' => 2,
+            'bedrooms' => 1,
+            'floor' => 1,
+            'city' => 'Auray',
+            'postal_code' => '56400',
+            'sold' => false,
+        ]);
+
+
+        return view('admin.properties.form', [
+            'property' => $property,
+            'options' => [],
+        ]);
+
+    }
+
     
