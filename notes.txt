@@ -127,4 +127,10 @@ il faut passer dans PropertyController les options :
 
     }
 
-    
+
+Affichage des options dans le champ :
+   @foreach($options as $k =>$v)
+        <option @selected($value->contains($k)) value="{{ $k }}" >
+            {{ $v }}
+        </option>
+        @endforeach
