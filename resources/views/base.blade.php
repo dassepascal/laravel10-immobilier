@@ -25,42 +25,24 @@
           @endphp
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              {{-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li> --}}
               <li class="nav-item">
-                <a @class(['nav-link','active' => str_contains($route,'property.')]) href="{{ route('admin.property.index') }}">Gérer les biens</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a @class(['nav-link','active' => str_contains($route,'option.')]) href="{{ route('admin.option.index') }}">Gérer les options</a>
-              </li>
+
 
             </ul>
 
           </div>
         </div>
       </nav>
-    <div class="container mt-5 ">
 
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{session('success')}}
-        </div>
-        @endif
+
+
+
 
         @yield('content')
     </div>
-    <script>
-    new TomSelect('select[multiple]', {
-        plugins: {
-            remove_button: {
-                title: 'Supprimer',
-            }
-        },
 
-    });
-
-    </script>
 
 </body>
 

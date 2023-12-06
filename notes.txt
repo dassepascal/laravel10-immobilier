@@ -140,4 +140,9 @@ page accueil
 creation d'un controller homeController
 
 route: Route::get('/', [HopmeController::class,'index]);
+creation de la methode public function index() dans le Home controller
+
+la vue base.blade.php
+suppression de la div container si besoin ajout dans les pages
+
 
