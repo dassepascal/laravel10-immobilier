@@ -14,6 +14,7 @@ $label ??=ucfirst($name);
             {{ $v }}
         </option>
         @endforeach
+        
     @error($name)
     <div class="invalid-feeback">
         {{ $message }}
