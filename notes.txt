@@ -134,3 +134,10 @@ Affichage des options dans le champ :
             {{ $v }}
         </option>
         @endforeach
+
+
+page accueil
+creation d'un controller homeController
+
+route: Route::get('/', [HopmeController::class,'index]);
+
