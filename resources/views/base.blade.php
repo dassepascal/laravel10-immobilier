@@ -23,12 +23,12 @@
           @php
                 $route = Route::currentRouteName();
           @endphp
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ">
+              
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a  href="{{ route('property.index') }}" @class(['nav-link','active'=> str_contains($route,'property.index')])>Biens</a>
               </li>
-
 
             </ul>
 

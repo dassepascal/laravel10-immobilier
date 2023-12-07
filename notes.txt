@@ -146,3 +146,10 @@ la vue base.blade.php
 suppression de la div container si besoin ajout dans les pages
 
 
+creation du PropertyController
+
+dans la bdd nous n'avons pas de slug donc nous allons créer une methode dans Property.php
+
+creation budget   creation SearchPropertiesRequest
+
+install debugbar: composer require barryvdh/laravel-debugbar --dev
