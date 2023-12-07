@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>{{ $roperty->title }}</h1>
+<h1>{{ $property->title }}</h1>
 <h2>{{ $property->rooms }} pièces - {{  $property->surface }} m² </h2>
 
 <div class="text-primary fw-bold" style="font-size: 1.4rem; ">

@@ -18,7 +18,7 @@ class PropertyController extends Controller
 
         $query = Property::query();
         if($price = $request->validated('price')) {
-         $query =   $query->where('price', '<=', $price);
+            $query =   $query->where('price', '<=', $price);
         }
         if($surface = $request->validated('surface')) {
             $query =     $query->where('surface', '>=', $surface);
@@ -28,7 +28,7 @@ class PropertyController extends Controller
         }
         if($title = $request->validated('title')) {
 
-            $query = $query->where('title', 'like',"%{$title}%" );
+            $query = $query->where('title', 'like', "%{$title}%");
 
         }
 
@@ -38,13 +38,14 @@ class PropertyController extends Controller
         ]);
     }
 
-    public function show(string $slug, Property $property) {
+    public function show(string $slug, Property $property)
+    {
         
-        $expectedSlug = $property->getSlug();
+        $property= Property::where('slug', $slug)->firstOrFail();
 
-        if($slug !== $expectedSlug) {
+        if($slug !== $property->slug) {
             return redirect()->route('property.show', [
-                'slug' => $expectedSlug,
+                'slug' => $property->slug,
                 'property' => $property
             ]);
         }

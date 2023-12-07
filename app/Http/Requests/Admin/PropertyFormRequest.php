@@ -23,6 +23,7 @@ class PropertyFormRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:properties,slug,'.$this->property,
             'description' => 'required|string',
             'surface' => 'required|integer',
             'rooms' => 'required|integer',
@@ -30,7 +31,7 @@ class PropertyFormRequest extends FormRequest
             'floor' => 'required|integer',
             'price' => 'required|integer',
             'city' => 'required|string|max:255',
-            'adress' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'postal_code' => 'required|integer',
             'sold' => 'required|boolean',
             'options'=>['array','exists:options,id','required']

@@ -33,7 +33,7 @@
     @include('shared.input', ['class' => 'col','label' => 'Etage', 'name' => 'floor', 'value' => $property->floor])
 </div>
 <div class="row">
-    @include('shared.input', ['class' => 'col','label' => 'Adresse', 'name' => 'adress', 'value' =>$property->adress])
+    @include('shared.input', ['class' => 'col','label' => 'Adresse', 'name' => 'address', 'value' =>$property->address])
     @include('shared.input', ['class' => 'col','label' => 'Ville', 'name' => 'city', 'value' => $property->city])
     @include('shared.input', ['class' => 'col','label' => 'Code postal', 'name' => 'postal_code', 'value' => $property->postal_code])
 </div>

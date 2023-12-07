@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\PropertyController as Property_Controller;
 
 
 /*
@@ -26,7 +27,7 @@ Route::get('/biens/{slug}', [PropertyController::class,'show'])->name('property.
     'property' => $idRegex
 ]);
 Route::prefix('admin')->name('admin.')->group(function(){
-    //Route::resource('property', PropertyController::class)->except('show');
+    Route::resource('property', Property_Controller::class)->except('show');
     Route::resource('option', OptionController::class)->except('show');
 
 });
