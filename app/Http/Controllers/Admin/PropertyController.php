@@ -51,9 +51,9 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
-
+dd($request);
         $property = Property::create($request->validated());
-        $property->options()->sync($request->input('options', []));
+        $property->options()->sync($request->input('options'));
         return to_route('admin.property.index')->with('success', 'Le bien a bien été ajouté !');
     }
 

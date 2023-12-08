@@ -7,6 +7,7 @@
 <div class="d-flex justify-content-between align-items-center">
     <h1>@yield('title')</h1>
 </div>
+@dump($property->options()->pluck('id','name'))
     <form
         class="vstack gap-2"
         action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', ['property' => $property]) }}"
