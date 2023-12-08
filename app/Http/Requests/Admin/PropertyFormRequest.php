@@ -23,7 +23,7 @@ class PropertyFormRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:properties,slug,'.$this->property,
+           
             'description' => 'required|string',
             'surface' => 'required|integer',
             'rooms' => 'required|integer',
