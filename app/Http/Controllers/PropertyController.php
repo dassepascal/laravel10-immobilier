@@ -16,7 +16,7 @@ class PropertyController extends Controller
         //     'properties'=> $properties
         // ]);
 
-        $query = Property::query();
+        $query = Property::query()->orderBy('created_at', 'desc')->with('options');
         if($price = $request->validated('price')) {
             $query =   $query->where('price', '<=', $price);
         }
@@ -40,7 +40,7 @@ class PropertyController extends Controller
 
     public function show(string $slug, Property $property)
     {
-        
+
         $property= Property::where('slug', $slug)->firstOrFail();
 
         if($slug !== $property->slug) {
